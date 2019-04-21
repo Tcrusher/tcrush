@@ -24,7 +24,7 @@ public class RegisterController {
         userInfo.setUserName(map.get("Username"));
         userInfo.setPassword(map.get("Password"));
         userInfo.setEmail(map.get("Email"));
-        registerService.register(userInfo);
-        return null;
+        BackRest backRest=registerService.register(userInfo);
+        return backRest;
     }
 }

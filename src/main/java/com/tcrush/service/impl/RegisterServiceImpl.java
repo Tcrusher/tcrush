@@ -12,14 +12,19 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     UserDao userDao;
-
+    BackRest backRest=new BackRest();
     @Override
     public BackRest register(UserInfo userInfo) {
         try {
             userDao.register(userInfo);
+            backRest.setCode(200);
+            backRest.setMassage("注册成功");
         }catch (Exception e) {
             e.printStackTrace();
+            backRest.setCode(-1);
+            backRest.setMassage("注册失败");
+            return backRest;
         }
-        return null;
+        return backRest;
     }
 }
