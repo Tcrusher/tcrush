@@ -1,12 +1,12 @@
 $(function() {
-	$("#login").click(function() {
+	$("#Login").click(function() {
 		login();
 	});
 	return false;
 });
 function login() {
 	$.ajax({
-		url : "../login",
+		url : "http://localhost:8080/login",
 		type : "POST",
 		data : {
 			username : $("#username").val(),
@@ -18,7 +18,7 @@ function login() {
 				alert(data.data);
 				alert(data.message);
 			} else {
-				$("#loginErrorMsg").html(data.message);
+				alert("登录失败");
 			}
 		}
 	});
