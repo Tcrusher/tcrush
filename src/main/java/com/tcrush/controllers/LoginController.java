@@ -5,12 +5,7 @@ import com.tcrush.entity.user.LoginInfo;
 import com.tcrush.service.impl.LoginServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LoginController {
@@ -20,11 +15,16 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public BackRest login(@RequestParam Map<String,String> map) {
+    public BackRest login(@ModelAttribute("username") String username, @ModelAttribute("password") String password) {
         LoginInfo loginInfo=new LoginInfo();
-        loginInfo.setUserName(map.get("Username"));
-        loginInfo.setPassword(map.get("Password"));
+        loginInfo.setUserName(username);
+        loginInfo.setPassword(password);
+        System.out.println(username+" data "+password);
         BackRest backRest=loginService.loginService(loginInfo);
         return backRest;
+    }
+    @RequestMapping("/")
+    public String index() {
+        return "login/login";
     }
 }
