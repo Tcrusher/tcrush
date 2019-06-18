@@ -1,7 +1,6 @@
 $(function() {
     $("#login").click(function() {
         login();
-        alert("登录");
     });
     return false;
 });
@@ -10,8 +9,8 @@ function login() {
         url : "../login",
         type : "POST",
         data : {
-            username : $("#username").val(),
-            password : $("#password").val()
+            username : document.getElementById("username").value(),
+            password : document.getElementById("password").value()
         },
         success : function(data) {
             if (data.code == 200) {
