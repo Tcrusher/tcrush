@@ -4,9 +4,9 @@ public class Employee {
     private String number;
     private String name;
     private String sex;
-    private String IDCard;
-    private String birthday;
-    private String BankCard;
+    private String phone;
+    private String profession;
+    private String resume;
 
     public String getNumber() {
         return number;
@@ -32,27 +32,27 @@ public class Employee {
         this.sex = sex;
     }
 
-    public String getIDCard() {
-        return IDCard;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setIDCard(String IDCard) {
-        this.IDCard = IDCard;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getProfession() {
+        return profession;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setProfession(String profession) {
+        this.profession = profession;
     }
 
-    public String getBankCard() {
-        return BankCard;
+    public String getResume() {
+        return resume;
     }
 
-    public void setBankCard(String bankCard) {
-        BankCard = bankCard;
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 }
