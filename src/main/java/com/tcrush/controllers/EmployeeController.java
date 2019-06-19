@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -31,8 +33,12 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/select", method = RequestMethod.GET)
-    public Employee SelectEmployee(@ModelAttribute("number") String number) {
-        return null;
+    public BackRest SelectEmployee(@ModelAttribute("number") String number) {
+        List<Employee> employees=new ArrayList<Employee>();
+        BackRest backRest=new BackRest();
+        backRest.setCode(200);
+        backRest.setMassage(employees.toString());
+        return backRest;
     }
 
     @ResponseBody
@@ -43,8 +49,15 @@ public class EmployeeController {
         return backRest;
     }
 
+    @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public BackRest UpDateEmployee(String number, Employee employee) {
-        return null;
+    public BackRest UpDateEmployee(@RequestParam Map<String, String> map) {
+        Employee employee = new Employee();
+        String number = map.get("number");
+        employee.setNumber(map.get("number"));
+        employee.setName(map.get("name"));
+        employee.setSex(map.get("sex"));
+        BackRest backRest=employeeService.UpDateEmployeeService(number);
+        return backRest;
     }
 }
