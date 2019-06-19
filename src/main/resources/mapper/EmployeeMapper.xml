@@ -4,4 +4,8 @@
     <insert id="InsertEmployee" parameterType="com.tcrush.entity.employee.Employee">
         insert into employee (numbers, named, sex, birthday,phone,profession,resume) values (#{number},#{name},#{sex}, #{birthday},#{phone},#{profession},#{resume})
     </insert>
+
+    <delete id="DeleteEmployee" parameterType="com.tcrush.entity.employee.Employee">
+        delete from employee where numbers=#{number}
+    </delete>
 </mapper>

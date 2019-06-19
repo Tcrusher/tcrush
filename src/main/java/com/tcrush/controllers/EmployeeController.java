@@ -35,9 +35,12 @@ public class EmployeeController {
         return null;
     }
 
+    @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public BackRest DeleteEmployee(String number) {
-        return null;
+    public BackRest DeleteEmployee(@RequestParam Map<String, String> map) {
+        String number = map.get("number");
+        BackRest backRest = employeeService.DeleteEmployeeService(number);
+        return backRest;
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.GET)

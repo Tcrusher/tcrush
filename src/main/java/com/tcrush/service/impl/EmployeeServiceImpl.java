@@ -36,7 +36,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public BackRest DeleteEmployeeService(String number) {
-        return null;
+        try {
+            employeeDao.DeleteEmployee(number);
+            backRest.setCode(200);
+            backRest.setMassage("删除员工成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            backRest.setCode(-1);
+            backRest.setMassage("删除员工失败");
+            return backRest;
+        }
+
+        return backRest;
     }
 
     @Override
