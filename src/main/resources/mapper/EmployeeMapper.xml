@@ -5,7 +5,16 @@
         insert into employee (numbers, named, sex, birthday,phone,profession,resume) values (#{number},#{name},#{sex}, #{birthday},#{phone},#{profession},#{resume})
     </insert>
 
+    <select id="SelectEmployee" parameterType="com.tcrush.entity.employee.Employee">
+        select * from employee where numbers=#{number}
+    </select>
+
     <delete id="DeleteEmployee" parameterType="com.tcrush.entity.employee.Employee">
         delete from employee where numbers=#{number}
     </delete>
+
+    <update id="UpDateEmployee" parameterType="com.tcrush.entity.employee.Employee">
+        update from employee
+    </update>
+
 </mapper>
