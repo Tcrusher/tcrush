@@ -3,6 +3,7 @@ package com.tcrush.entity;
 public class BackRest {
     private int code;
     private String massage;
+    private Object data;
 
     public int getCode() {
         return code;
@@ -18,5 +19,13 @@ public class BackRest {
 
     public void setMassage(String massage) {
         this.massage = massage;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
 }
