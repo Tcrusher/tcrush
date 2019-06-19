@@ -4,6 +4,7 @@ public class Employee {
     private String number;
     private String name;
     private String sex;
+    private String birthday;
     private String phone;
     private String profession;
     private String resume;
@@ -30,6 +31,14 @@ public class Employee {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public String getPhone() {
