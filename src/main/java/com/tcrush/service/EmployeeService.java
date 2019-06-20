@@ -7,5 +7,5 @@ public interface EmployeeService {
     BackRest InsertEmployeeService(Employee employee);
     BackRest SelectEmployeeService(String number);
     BackRest DeleteEmployeeService(String number);
-    BackRest UpDateEmployeeService(String number);
+    BackRest UpDateEmployeeService(String number, Employee employee);
 }

@@ -57,7 +57,11 @@ public class EmployeeController {
         employee.setNumber(map.get("number"));
         employee.setName(map.get("name"));
         employee.setSex(map.get("sex"));
-        BackRest backRest=employeeService.UpDateEmployeeService(number);
+        employee.setBirthday(map.get(""));
+        employee.setPhone(map.get(""));
+        employee.setProfession(map.get(""));
+        employee.setResume(map.get(""));
+        BackRest backRest=employeeService.UpDateEmployeeService(number, employee);
         return backRest;
     }
 }

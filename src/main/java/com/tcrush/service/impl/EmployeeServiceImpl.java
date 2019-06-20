@@ -51,7 +51,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public BackRest UpDateEmployeeService(String number) {
+    public BackRest UpDateEmployeeService(String number, Employee employee) {
+        try {
+            employeeDao.UpDateEmployee(number,employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
