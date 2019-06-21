@@ -2,15 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tcrush.dao.EmployeeDao">
     <insert id="InsertEmployee" parameterType="com.tcrush.entity.employee.Employee">
-        insert into employee (numbers, named, sex, birthday,phone,profession,resume) values (#{number},#{name},#{sex}, #{birthday},#{phone},#{profession},#{resume})
+        insert into employee (eno, ename, sex, birthday,phone,profession,resume) values (#{number},#{name},#{sex}, #{birthday},#{phone},#{profession},#{resume})
     </insert>
 
     <select id="SelectEmployee" parameterType="com.tcrush.entity.employee.Employee">
-        select * from employee where numbers=#{number}
+        select * from employee where eno=#{number}
     </select>
 
     <delete id="DeleteEmployee" parameterType="com.tcrush.entity.employee.Employee">
-        delete from employee where numbers=#{number}
+        delete from employee where eno=#{number}
     </delete>
 
     <update id="UpDateEmployee" parameterType="com.tcrush.entity.employee.Employee">
