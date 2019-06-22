@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tcrush.dao.EmployeeDao">
+
+    <resultMap id="EmployeeMap" type="com.tcrush.entity.employee.Employee">
+        <result column="eno" property="number"/>
+        <result column="ename" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="birthday" property="birthday"/>
+        <result column="phone" property="phone"/>
+        <result column="profession" property="profession"/>
+        <result column="resume" property="resume"/>
+    </resultMap>
+
     <insert id="InsertEmployee" parameterType="com.tcrush.entity.employee.Employee">
         insert into employee (eno, ename, sex, birthday,phone,profession,resume) values (#{number},#{name},#{sex}, #{birthday},#{phone},#{profession},#{resume})
     </insert>
 
-    <select id="SelectEmployee" parameterType="com.tcrush.entity.employee.Employee">
+    <select id="SelectEmployee" resultMap="EmployeeMap">
         select * from employee where eno=#{number}
     </select>
 

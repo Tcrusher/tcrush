@@ -32,12 +32,10 @@ public class EmployeeController {
         return backRest;
     }
 
+    @ResponseBody
     @RequestMapping(value = "/select", method = RequestMethod.GET)
     public BackRest SelectEmployee(@ModelAttribute("number") String number) {
-        List<Employee> employees=new ArrayList<Employee>();
-        BackRest backRest=new BackRest();
-        backRest.setCode(200);
-        backRest.setMassage(employees.toString());
+        BackRest backRest=employeeService.SelectEmployeeService(number);
         return backRest;
     }
 

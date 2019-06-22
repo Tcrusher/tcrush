@@ -7,13 +7,16 @@ import com.tcrush.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     EmployeeDao employeeDao;
 
-    BackRest backRest=new BackRest();
+    BackRest backRest = new BackRest();
+
     @Override
     public BackRest InsertEmployeeService(Employee employee) {
         try {
@@ -31,7 +34,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public BackRest SelectEmployeeService(String number) {
-        return null;
+        try {
+            List<Employee> employees = employeeDao.SelectEmployee(number);
+            backRest.setCode(200);
+            backRest.setMassage("查询员工成功");
+            backRest.setData(employees);
+        } catch (Exception e) {
+            e.printStackTrace();
+            backRest.setCode(-1);
+            backRest.setMassage("查询员工失败");
+            backRest.setData(null);
+        }
+        return backRest;
     }
 
     @Override
@@ -53,7 +67,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public BackRest UpDateEmployeeService(String number, Employee employee) {
         try {
-            employeeDao.UpDateEmployee(number,employee);
+            employeeDao.UpDateEmployee(number, employee);
         } catch (Exception e) {
             e.printStackTrace();
         }
