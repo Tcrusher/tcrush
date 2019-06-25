@@ -2,7 +2,7 @@ package com.tcrush.controllers;
 
 import com.tcrush.entity.BackRest;
 import com.tcrush.entity.dismissal.Dismissal;
-import com.tcrush.service.DismissalService;
+import com.tcrush.service.impl.DismissalServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +16,12 @@ import java.util.Map;
 public class DismissalController {
 
     @Autowired
-    DismissalService dismissalService;
+    DismissalServiceImpl dismissalService;
 
     @ResponseBody
     @RequestMapping(value = "/dismissal/insert", method = RequestMethod.POST)
     public BackRest InsertDismissal(@RequestParam Map<String, String> map) {
-        Dismissal dismissal=new Dismissal();
+        Dismissal dismissal = new Dismissal();
         dismissal.setNumber(map.get("number"));
         dismissal.setDismissalDate(map.get("dismissalDate"));
         dismissal.setDismissalLetter(map.get("dismissalLetter"));
@@ -33,7 +33,9 @@ public class DismissalController {
 
     @ResponseBody
     @RequestMapping(value = "/dismissal/select", method = RequestMethod.GET)
-    public BackRest SelectDismissal() {
-        return null;
+    public BackRest SelectDismissal(@RequestParam Map<String, String> map) {
+        String number = map.get("number");
+        BackRest backRest = dismissalService.SelectDismissalService(number);
+        return backRest;
     }
 }

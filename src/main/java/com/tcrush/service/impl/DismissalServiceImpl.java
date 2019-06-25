@@ -7,6 +7,8 @@ import com.tcrush.service.DismissalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DismissalServiceImpl implements DismissalService {
 
@@ -32,6 +34,17 @@ public class DismissalServiceImpl implements DismissalService {
 
     @Override
     public BackRest SelectDismissalService(String number) {
-        return null;
+        try {
+            List<Dismissal> dismissals = dismissalDao.SelectDismissal(number);
+            backRest.setCode(200);
+            backRest.setMassage("查询离职信息成功");
+            backRest.setData(dismissals);
+        } catch (Exception e) {
+            e.printStackTrace();
+            backRest.setCode(-1);
+            backRest.setMassage("查询离职信息失败");
+            backRest.setData(null);
+        }
+        return backRest;
     }
 }

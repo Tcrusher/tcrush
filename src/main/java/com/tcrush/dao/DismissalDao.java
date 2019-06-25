@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface DismissalDao {
     void InsertDismissal(Dismissal dismissal);
-    List<Dismissal> SelctDismissal(String number);
+    List<Dismissal> SelectDismissal(String number);
 }
