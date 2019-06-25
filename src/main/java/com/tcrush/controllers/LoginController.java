@@ -22,6 +22,8 @@ public class LoginController {
         BackRest backRest=loginService.loginService(loginInfo);
         return backRest;
     }
+
+    @ResponseBody
     @RequestMapping("/")
     public String index() {
         return "login/login";

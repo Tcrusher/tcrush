@@ -23,10 +23,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             employeeDao.InsertEmployee(employee);
             backRest.setCode(200);
             backRest.setMassage("增添员工成功");
+            backRest.setData(null);
         } catch (Exception e) {
             e.printStackTrace();
             backRest.setCode(-1);
             backRest.setMassage("增添员工失败");
+            backRest.setData(null);
             return backRest;
         }
         return backRest;
@@ -54,10 +56,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             employeeDao.DeleteEmployee(number);
             backRest.setCode(200);
             backRest.setMassage("删除员工成功");
+            backRest.setData(null);
         } catch (Exception e) {
             e.printStackTrace();
             backRest.setCode(-1);
             backRest.setMassage("删除员工失败");
+            backRest.setData(null);
             return backRest;
         }
 
