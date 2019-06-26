@@ -7,6 +7,8 @@ import com.tcrush.service.RetirementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RetirementServiceImpl implements RetirementService {
 
@@ -33,6 +35,17 @@ public class RetirementServiceImpl implements RetirementService {
 
     @Override
     public BackRest SelectRetireService(String number) {
-        return null;
+        try {
+            List<Retirement> retirements = retirementDao.SelectRetire(number);
+            backRest.setCode(200);
+            backRest.setMassage("查询退休信息成功");
+            backRest.setData(retirements);
+        } catch (Exception e) {
+            e.printStackTrace();
+            backRest.setCode(-1);
+            backRest.setMassage("查询退休信息失败");
+            backRest.setData(null);
+        }
+        return backRest;
     }
 }

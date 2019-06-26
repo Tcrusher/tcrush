@@ -12,7 +12,7 @@
         <result column="resume" property="resume"/>
     </resultMap>
 
-    <insert id="InsertEmployee" parameterMap="com.tcrush.entity.employee.Employee">
+    <insert id="InsertEmployee" parameterType="com.tcrush.entity.employee.Employee">
         insert into employee (eno, ename, sex, birthday,phone,profession,resume) values (#{number},#{name},#{sex}, #{birthday},#{phone},#{profession},#{resume})
     </insert>
 

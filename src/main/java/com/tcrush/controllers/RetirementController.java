@@ -31,7 +31,9 @@ public class RetirementController {
 
     @ResponseBody
     @RequestMapping(value = "retire/select", method = RequestMethod.GET)
-    public BackRest SelectRetire() {
-        return null;
+    public BackRest SelectRetire(@RequestParam Map<String, String> map) {
+        String number = map.get("number");
+        BackRest backRest = retirementService.SelectRetireService(number);
+        return backRest;
     }
 }

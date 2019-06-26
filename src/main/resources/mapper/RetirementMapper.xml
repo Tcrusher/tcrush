@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tcrush.dao.RetirementDao">
-    <select id="SelectRetire" resultType="java.lang.Integer" parameterType="com.tcrush.entity.retirement.Retirement">
-        select count(*)  from retirement
+    <resultMap id="RetireMap" type="com.tcrush.entity.retirement.Retirement">
+        <result column="eno" property="number"/>
+        <result column="ret_date" property="retireDate"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <select id="SelectRetire" resultMap="RetireMap" parameterType="com.tcrush.entity.retirement.Retirement">
+        select *  from retirement where eno=#{number}
     </select>
 
     <insert id="InsertRetire" parameterType="com.tcrush.entity.retirement.Retirement">
