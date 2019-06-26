@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tcrush.dao.SalariesDao">
+    <select id="login" resultType="java.lang.Integer" parameterType="com.tcrush.entity.user.LoginInfo">
+        select count(*)  from user where user_name = #{userName} and password = #{password}
+    </select>
+
+    <insert id="register" parameterType="com.tcrush.entity.user.UserInfo">
+        insert into user (user_name,password,email) values (#{userName},#{password},#{email})
+    </insert>
+</mapper>
