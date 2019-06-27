@@ -20,7 +20,7 @@ public class DismissalController {
 
     @ResponseBody
     @RequestMapping(value = "/dismissal/insert", method = RequestMethod.POST)
-    public BackRest InsertDismissal(@RequestParam Map<String, String> map) {
+    public BackRest insertDismissal(@RequestParam Map<String, String> map) {
         Dismissal dismissal = new Dismissal();
         dismissal.setNumber(map.get("number"));
         dismissal.setDismissalDate(map.get("dismissalDate"));
@@ -33,7 +33,7 @@ public class DismissalController {
 
     @ResponseBody
     @RequestMapping(value = "/dismissal/select", method = RequestMethod.GET)
-    public BackRest SelectDismissal(@RequestParam Map<String, String> map) {
+    public BackRest selectDismissal(@RequestParam Map<String, String> map) {
         String number = map.get("number");
         BackRest backRest = dismissalService.selectDismissalService(number);
         return backRest;

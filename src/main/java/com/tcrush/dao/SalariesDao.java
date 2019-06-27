@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface SalariesDao {
-    BackRest insertSalaries(Salaries salaries);
+    void insertSalaries(Salaries salaries);
     List<Salaries> selectSalaries(String number);
 }

@@ -18,7 +18,7 @@ public class SalariesServiceImpl implements SalariesService {
     BackRest backRest = new BackRest();
 
     @Override
-    public BackRest InsertSalaries(Salaries salaries) {
+    public BackRest insertSalaries(Salaries salaries) {
         try {
             salariesDao.insertSalaries(salaries);
             backRest.setCode(200);

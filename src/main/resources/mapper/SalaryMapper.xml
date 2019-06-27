@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tcrush.dao.SalaryDao">
-    <select id="login" resultType="java.lang.Integer" parameterType="com.tcrush.entity.user.LoginInfo">
-        select count(*)  from user where user_name = #{userName} and password = #{password}
+    <resultMap id="SalaryMap" type="com.tcrush.entity.salary.Salary">
+        <result column="eno" property="number"/>
+        <result column="his_Date" property="historyDate"/>
+        <result column="current_salary" property="currentSalary"/>
+        <result column="personal_tax" property="personalTax"/>
+        <result column="award" property="award"/>
+        <result column="punishment" property="punishment"/>
+    </resultMap>
+    <select id="selectSalary" resultMap="SalaryMap">
+        select count(*)  from salary where eno = #{number}
     </select>
 
-    <insert id="register" parameterType="com.tcrush.entity.user.UserInfo">
-        insert into user (user_name,password,email) values (#{userName},#{password},#{email})
+    <insert id="insertSalary" parameterType="com.tcrush.entity.salary.Salary">
+        insert into salary (eno,his_date,current_salary,personal_tax,award,punishment)
+          values (#{number},#{historyDate},#{currentSalary},#{personalTax},#{award},#{punishment})
     </insert>
 </mapper>

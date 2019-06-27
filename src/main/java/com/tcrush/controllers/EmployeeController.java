@@ -17,7 +17,7 @@ public class EmployeeController {
 
     @ResponseBody
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public BackRest InsertEmployee(@RequestParam Map<String, String> map) {
+    public BackRest insertEmployee(@RequestParam Map<String, String> map) {
         Employee employee = new Employee();
         employee.setNumber(map.get("number"));
         employee.setName(map.get("name"));
@@ -32,14 +32,14 @@ public class EmployeeController {
 
     @ResponseBody
     @RequestMapping(value = "/select", method = RequestMethod.GET)
-    public BackRest SelectEmployee(@ModelAttribute("number") String number) {
+    public BackRest selectEmployee(@ModelAttribute("number") String number) {
         BackRest backRest=employeeService.selectEmployeeService(number);
         return backRest;
     }
 
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public BackRest DeleteEmployee(@RequestParam Map<String, String> map) {
+    public BackRest deleteEmployee(@RequestParam Map<String, String> map) {
         String number = map.get("number");
         BackRest backRest = employeeService.deleteEmployeeService(number);
         return backRest;
@@ -47,7 +47,7 @@ public class EmployeeController {
 
     @ResponseBody
     @RequestMapping(value = "/update", method = RequestMethod.GET)
-    public BackRest UpDateEmployee(@RequestParam Map<String, String> map) {
+    public BackRest upDateEmployee(@RequestParam Map<String, String> map) {
         Employee employee = new Employee();
         String number = map.get("number");
         employee.setNumber(map.get("number"));

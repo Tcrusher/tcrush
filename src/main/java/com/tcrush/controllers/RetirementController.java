@@ -20,7 +20,7 @@ public class RetirementController {
 
     @ResponseBody
     @RequestMapping(value = "retire/insert", method = RequestMethod.POST)
-    public BackRest InsertRetire(@RequestParam Map<String, String> map) {
+    public BackRest insertRetire(@RequestParam Map<String, String> map) {
         Retirement retirement = new Retirement();
         retirement.setNumber(map.get("number"));
         retirement.setRetireDate("retireDate");
@@ -31,7 +31,7 @@ public class RetirementController {
 
     @ResponseBody
     @RequestMapping(value = "retire/select", method = RequestMethod.GET)
-    public BackRest SelectRetire(@RequestParam Map<String, String> map) {
+    public BackRest selectRetire(@RequestParam Map<String, String> map) {
         String number = map.get("number");
         BackRest backRest = retirementService.selectRetireService(number);
         return backRest;
