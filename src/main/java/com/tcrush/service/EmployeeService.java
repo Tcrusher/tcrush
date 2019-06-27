@@ -4,8 +4,8 @@ import com.tcrush.entity.BackRest;
 import com.tcrush.entity.employee.Employee;
 
 public interface EmployeeService {
-    BackRest InsertEmployeeService(Employee employee);
-    BackRest SelectEmployeeService(String number);
-    BackRest DeleteEmployeeService(String number);
-    BackRest UpDateEmployeeService(String number, Employee employee);
+    BackRest insertEmployeeService(Employee employee);
+    BackRest selectEmployeeService(String number);
+    BackRest deleteEmployeeService(String number);
+    BackRest upDateEmployeeService(String number, Employee employee);
 }

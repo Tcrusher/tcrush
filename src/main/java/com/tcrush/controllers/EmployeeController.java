@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -28,14 +26,14 @@ public class EmployeeController {
         employee.setPhone(map.get("phone"));
         employee.setProfession(map.get("profession"));
         employee.setResume(map.get("resume"));
-        BackRest backRest = employeeService.InsertEmployeeService(employee);
+        BackRest backRest = employeeService.insertEmployeeService(employee);
         return backRest;
     }
 
     @ResponseBody
     @RequestMapping(value = "/select", method = RequestMethod.GET)
     public BackRest SelectEmployee(@ModelAttribute("number") String number) {
-        BackRest backRest=employeeService.SelectEmployeeService(number);
+        BackRest backRest=employeeService.selectEmployeeService(number);
         return backRest;
     }
 
@@ -43,7 +41,7 @@ public class EmployeeController {
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public BackRest DeleteEmployee(@RequestParam Map<String, String> map) {
         String number = map.get("number");
-        BackRest backRest = employeeService.DeleteEmployeeService(number);
+        BackRest backRest = employeeService.deleteEmployeeService(number);
         return backRest;
     }
 
@@ -59,7 +57,7 @@ public class EmployeeController {
         employee.setPhone(map.get(""));
         employee.setProfession(map.get(""));
         employee.setResume(map.get(""));
-        BackRest backRest=employeeService.UpDateEmployeeService(number, employee);
+        BackRest backRest=employeeService.upDateEmployeeService(number, employee);
         return backRest;
     }
 }

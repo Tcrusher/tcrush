@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class SalaryServiceImpl implements SalaryService {
     @Override
-    public BackRest InsertSalary(Salary salary) {
+    public BackRest insertSalary(Salary salary) {
         return null;
     }
 
     @Override
-    public BackRest SelectSalary(String number) {
+    public BackRest selectSalary(String number) {
         return null;
     }
 }

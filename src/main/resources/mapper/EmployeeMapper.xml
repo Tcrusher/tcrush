@@ -12,19 +12,19 @@
         <result column="resume" property="resume"/>
     </resultMap>
 
-    <insert id="InsertEmployee" parameterType="com.tcrush.entity.employee.Employee">
+    <insert id="insertEmployee" parameterType="com.tcrush.entity.employee.Employee">
         insert into employee (eno, ename, sex, birthday,phone,profession,resume) values (#{number},#{name},#{sex}, #{birthday},#{phone},#{profession},#{resume})
     </insert>
 
-    <select id="SelectEmployee" resultMap="EmployeeMap">
+    <select id="selectEmployee" resultMap="EmployeeMap">
         select * from employee where eno=#{number}
     </select>
 
-    <delete id="DeleteEmployee" parameterType="com.tcrush.entity.employee.Employee">
+    <delete id="deleteEmployee" parameterType="com.tcrush.entity.employee.Employee">
         delete from employee where eno=#{number}
     </delete>
 
-    <update id="UpDateEmployee" parameterType="com.tcrush.entity.employee.Employee">
+    <update id="upDateEmployee" parameterType="com.tcrush.entity.employee.Employee">
         update from employee
     </update>
 

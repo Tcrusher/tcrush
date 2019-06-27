@@ -7,8 +7,8 @@ import java.util.List;
 
 @Repository
 public interface EmployeeDao {
-    void InsertEmployee(Employee employee);
-    List<Employee> SelectEmployee(String number);
-    void DeleteEmployee(String number);
-    void UpDateEmployee(String number, Employee employee);
+    void insertEmployee(Employee employee);
+    List<Employee> selectEmployee(String number);
+    void deleteEmployee(String number);
+    void upDateEmployee(String number, Employee employee);
 }

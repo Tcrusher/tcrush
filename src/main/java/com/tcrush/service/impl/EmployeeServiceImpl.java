@@ -18,9 +18,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     BackRest backRest = new BackRest();
 
     @Override
-    public BackRest InsertEmployeeService(Employee employee) {
+    public BackRest insertEmployeeService(Employee employee) {
         try {
-            employeeDao.InsertEmployee(employee);
+            employeeDao.insertEmployee(employee);
             backRest.setCode(200);
             backRest.setMassage("增添员工成功");
             backRest.setData(null);
@@ -35,9 +35,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public BackRest SelectEmployeeService(String number) {
+    public BackRest selectEmployeeService(String number) {
         try {
-            List<Employee> employees = employeeDao.SelectEmployee(number);
+            List<Employee> employees = employeeDao.selectEmployee(number);
             backRest.setCode(200);
             backRest.setMassage("查询员工成功");
             backRest.setData(employees);
@@ -51,9 +51,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public BackRest DeleteEmployeeService(String number) {
+    public BackRest deleteEmployeeService(String number) {
         try {
-            employeeDao.DeleteEmployee(number);
+            employeeDao.deleteEmployee(number);
             backRest.setCode(200);
             backRest.setMassage("删除员工成功");
             backRest.setData(null);
@@ -69,9 +69,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public BackRest UpDateEmployeeService(String number, Employee employee) {
+    public BackRest upDateEmployeeService(String number, Employee employee) {
         try {
-            employeeDao.UpDateEmployee(number, employee);
+            employeeDao.upDateEmployee(number, employee);
         } catch (Exception e) {
             e.printStackTrace();
         }

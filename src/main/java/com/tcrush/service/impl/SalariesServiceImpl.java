@@ -34,7 +34,7 @@ public class SalariesServiceImpl implements SalariesService {
     }
 
     @Override
-    public BackRest SelectSalaries(String number) {
+    public BackRest selectSalaries(String number) {
         try {
             List<Salaries> salariesList = salariesDao.selectSalaries(number);
             backRest.setCode(200);
