@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface RetirementDao {
-    void InsertRetire(Retirement retirement);
-    List<Retirement> SelectRetire(String number);
+    void insertRetire(Retirement retirement);
+    List<Retirement> selectRetire(String number);
 }

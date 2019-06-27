@@ -25,7 +25,7 @@ public class RetirementController {
         retirement.setNumber(map.get("number"));
         retirement.setRetireDate("retireDate");
         retirement.setRemark("remark");
-        BackRest backRest = retirementService.InsertRetireService(retirement);
+        BackRest backRest = retirementService.insertRetireService(retirement);
         return backRest;
     }
 
@@ -33,7 +33,7 @@ public class RetirementController {
     @RequestMapping(value = "retire/select", method = RequestMethod.GET)
     public BackRest SelectRetire(@RequestParam Map<String, String> map) {
         String number = map.get("number");
-        BackRest backRest = retirementService.SelectRetireService(number);
+        BackRest backRest = retirementService.selectRetireService(number);
         return backRest;
     }
 }

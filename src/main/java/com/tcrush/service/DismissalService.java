@@ -4,6 +4,6 @@ import com.tcrush.entity.BackRest;
 import com.tcrush.entity.dismissal.Dismissal;
 
 public interface DismissalService {
-    BackRest InsertDismissalService(Dismissal dismissal);
-    BackRest SelectDismissalService(String number);
+    BackRest insertDismissalService(Dismissal dismissal);
+    BackRest selectDismissalService(String number);
 }

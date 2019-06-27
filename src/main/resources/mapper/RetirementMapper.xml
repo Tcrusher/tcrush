@@ -7,11 +7,11 @@
         <result column="remark" property="remark"/>
     </resultMap>
 
-    <select id="SelectRetire" resultMap="RetireMap" parameterType="com.tcrush.entity.retirement.Retirement">
+    <select id="selectRetire" resultMap="RetireMap" parameterType="com.tcrush.entity.retirement.Retirement">
         select *  from retirement where eno=#{number}
     </select>
 
-    <insert id="InsertRetire" parameterType="com.tcrush.entity.retirement.Retirement">
+    <insert id="insertRetire" parameterType="com.tcrush.entity.retirement.Retirement">
         insert into retirement (eno,ret_date,remark) values (#{number},#{retireDate},#{remark})
     </insert>
 </mapper>

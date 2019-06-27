@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface DismissalDao {
-    void InsertDismissal(Dismissal dismissal);
-    List<Dismissal> SelectDismissal(String number);
+    void insertDismissal(Dismissal dismissal);
+    List<Dismissal> selectDismissal(String number);
 }

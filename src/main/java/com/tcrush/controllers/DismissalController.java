@@ -27,7 +27,7 @@ public class DismissalController {
         dismissal.setDismissalLetter(map.get("dismissalLetter"));
         dismissal.setReason(map.get("reason"));
         dismissal.setRemark(map.get("remark"));
-        BackRest backRest = dismissalService.InsertDismissalService(dismissal);
+        BackRest backRest = dismissalService.insertDismissalService(dismissal);
         return backRest;
     }
 
@@ -35,7 +35,7 @@ public class DismissalController {
     @RequestMapping(value = "/dismissal/select", method = RequestMethod.GET)
     public BackRest SelectDismissal(@RequestParam Map<String, String> map) {
         String number = map.get("number");
-        BackRest backRest = dismissalService.SelectDismissalService(number);
+        BackRest backRest = dismissalService.selectDismissalService(number);
         return backRest;
     }
 }

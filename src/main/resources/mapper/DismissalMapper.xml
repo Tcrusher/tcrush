@@ -8,11 +8,11 @@
         <result column="reason" property="reason"/>
         <result column="remark" property="remark"/>
     </resultMap>
-    <select id="SelectDismissal" resultMap="DismissalMap" parameterType="com.tcrush.entity.dismissal.Dismissal">
+    <select id="selectDismissal" resultMap="DismissalMap" parameterType="com.tcrush.entity.dismissal.Dismissal">
         select *  from dismissal where eno = #{number}
     </select>
 
-    <insert id="InsertDismissal" parameterType="com.tcrush.entity.dismissal.Dismissal">
+    <insert id="insertDismissal" parameterType="com.tcrush.entity.dismissal.Dismissal">
         insert into dismissal (eno,dis_date,dis_letter,reason,remark) values (#{number},#{dismissalDate},#{dismissalLetter},#{reason},#{remark})
     </insert>
 </mapper>

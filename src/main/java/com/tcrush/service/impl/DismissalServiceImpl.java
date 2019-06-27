@@ -17,9 +17,9 @@ public class DismissalServiceImpl implements DismissalService {
 
     BackRest backRest = new BackRest();
     @Override
-    public BackRest InsertDismissalService(Dismissal dismissal) {
+    public BackRest insertDismissalService(Dismissal dismissal) {
         try {
-            dismissalDao.InsertDismissal(dismissal);
+            dismissalDao.insertDismissal(dismissal);
             backRest.setCode(200);
             backRest.setMassage("增添离职信息成功");
             backRest.setData(null);
@@ -33,9 +33,9 @@ public class DismissalServiceImpl implements DismissalService {
     }
 
     @Override
-    public BackRest SelectDismissalService(String number) {
+    public BackRest selectDismissalService(String number) {
         try {
-            List<Dismissal> dismissals = dismissalDao.SelectDismissal(number);
+            List<Dismissal> dismissals = dismissalDao.selectDismissal(number);
             backRest.setCode(200);
             backRest.setMassage("查询离职信息成功");
             backRest.setData(dismissals);

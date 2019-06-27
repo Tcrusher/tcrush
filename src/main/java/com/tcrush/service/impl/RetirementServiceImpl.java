@@ -18,9 +18,9 @@ public class RetirementServiceImpl implements RetirementService {
     BackRest backRest = new BackRest();
 
     @Override
-    public BackRest InsertRetireService(Retirement retirement) {
+    public BackRest insertRetireService(Retirement retirement) {
         try {
-            retirementDao.InsertRetire(retirement);
+            retirementDao.insertRetire(retirement);
             backRest.setCode(200);
             backRest.setMassage("增添退休信息成功");
             backRest.setData(null);
@@ -34,9 +34,9 @@ public class RetirementServiceImpl implements RetirementService {
     }
 
     @Override
-    public BackRest SelectRetireService(String number) {
+    public BackRest selectRetireService(String number) {
         try {
-            List<Retirement> retirements = retirementDao.SelectRetire(number);
+            List<Retirement> retirements = retirementDao.selectRetire(number);
             backRest.setCode(200);
             backRest.setMassage("查询退休信息成功");
             backRest.setData(retirements);
