@@ -17,3 +17,6 @@ Spring Boot的简单应用
 
 ## 2019.06.26
 结束退休信息接口，修复bug，parameterType，parameterMap。博客...
+
+## 2019.06.28
+获取json数据：注解@RequestBody JSONObject json；postman测试不是form-data，raw：json传入json数据。
