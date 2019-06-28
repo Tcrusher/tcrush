@@ -1,14 +1,12 @@
 package com.tcrush.controllers;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tcrush.entity.BackRest;
 import com.tcrush.entity.salary.Salary;
 import com.tcrush.service.impl.SalaryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -20,14 +18,14 @@ public class SalaryController {
 
     @ResponseBody
     @RequestMapping(value = "salary/insert", method = RequestMethod.POST)
-    public BackRest insertSalary(@RequestParam Map<String, Float> map) {
+    public BackRest insertSalary(@RequestBody JSONObject jsonObject) {
         Salary salary = new Salary();
-        salary.setNumber(map.get("number") + "");
-        salary.setHistoryDate(map.get("historyDate") + "");
-        salary.setCurrentSalary(map.get("currentSalary"));
-        salary.setPersonalTax(map.get("personalTax"));
-        salary.setAward(map.get("award"));
-        salary.setPunishment(map.get("punishment"));
+        salary.setNumber(jsonObject.getString("number"));
+        salary.setHistoryDate(jsonObject.getString("historyDate"));
+        salary.setCurrentSalary(jsonObject.getFloat("currentSalary"));
+        salary.setPersonalTax(jsonObject.getFloat("personalTax"));
+        salary.setAward(jsonObject.getFloat("award"));
+        salary.setPunishment(jsonObject.getFloat("punishment"));
         BackRest backRest = salaryService.insertSalary(salary);
         return backRest;
     }
