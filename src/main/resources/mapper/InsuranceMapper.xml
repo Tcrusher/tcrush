@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tcrush.dao.InsuranceDao">
-    <select id="login" resultType="java.lang.Integer" parameterType="com.tcrush.entity.user.LoginInfo">
-        select count(*)  from user where user_name = #{userName} and password = #{password}
+    <resultMap id="InsuranceMap" type="com.tcrush.entity.insurance.Insurance">
+        <result column="eno" property="number"/>
+        <result column="retire_ins" property="retireInsurance"/>
+        <result column="medical_ins" property="medicalInsurance"/>
+        <result column="fund" property="fund"/>
+    </resultMap>
+
+    <select id="selectInsurance" resultMap="InsuranceMap">
+        select *  from insurance where eno = #{number}
     </select>
 
-    <insert id="register" parameterType="com.tcrush.entity.user.UserInfo">
-        insert into user (user_name,password,email) values (#{userName},#{password},#{email})
+    <insert id="insertInsurance" parameterType="com.tcrush.entity.insurance.Insurance">
+        insert into insurance (eno,retire_ins,medical_ins,fund) values (#{number},#{retireInsurance},#{medicalInsurance},#{fund})
     </insert>
+
+    <delete id="deleteInsurance" parameterType="com.tcrush.entity.insurance.Insurance">
+        delete from insurance where eno=#{number}
+    </delete>
+
+    <update id="upDateInsurance" parameterType="com.tcrush.entity.insurance.Insurance">
+        update from insurance
+    </update>
 </mapper>

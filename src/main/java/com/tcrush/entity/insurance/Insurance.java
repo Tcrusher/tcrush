@@ -18,7 +18,7 @@ public class Insurance {
         return retireInsurance;
     }
 
-    public void setRerireInsurance(float retireInsurance) {
+    public void setRetireInsurance(float retireInsurance) {
         this.retireInsurance = retireInsurance;
     }
 
