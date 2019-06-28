@@ -32,8 +32,9 @@ public class EmployeeController {
 
     @ResponseBody
     @RequestMapping(value = "/select", method = RequestMethod.GET)
-    public BackRest selectEmployee(@ModelAttribute("number") String number) {
-        BackRest backRest=employeeService.selectEmployeeService(number);
+    public BackRest selectEmployee(@RequestParam Map<String, String> map) {
+        String number = map.get("number");
+        BackRest backRest = employeeService.selectEmployeeService(number);
         return backRest;
     }
 
@@ -53,11 +54,11 @@ public class EmployeeController {
         employee.setNumber(map.get("number"));
         employee.setName(map.get("name"));
         employee.setSex(map.get("sex"));
-        employee.setBirthday(map.get(""));
-        employee.setPhone(map.get(""));
-        employee.setProfession(map.get(""));
-        employee.setResume(map.get(""));
-        BackRest backRest=employeeService.upDateEmployeeService(number, employee);
+        employee.setBirthday(map.get("birthday"));
+        employee.setPhone(map.get("phone"));
+        employee.setProfession(map.get("profession"));
+        employee.setResume(map.get("resume"));
+        BackRest backRest = employeeService.upDateEmployeeService(number, employee);
         return backRest;
     }
 }
