@@ -10,7 +10,7 @@
         <result column="punishment" property="punishment"/>
     </resultMap>
     <select id="selectSalary" resultMap="SalaryMap">
-        select count(*)  from salary where eno = #{number}
+        select *  from salary where eno = #{number}
     </select>
 
     <insert id="insertSalary" parameterType="com.tcrush.entity.salary.Salary">

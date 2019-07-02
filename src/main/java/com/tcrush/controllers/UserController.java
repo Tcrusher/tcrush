@@ -22,6 +22,7 @@ public class UserController {
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setUserName(username);
         loginInfo.setPassword(password);
+        System.out.println(username+":"+password);
         BackRest backRest = userService.loginService(loginInfo);
         return backRest;
     }
@@ -37,9 +38,8 @@ public class UserController {
         return backRest;
     }
 
-    @ResponseBody
     @RequestMapping("/")
     public String index() {
-        return "login/login";
+        return "index";
     }
 }
