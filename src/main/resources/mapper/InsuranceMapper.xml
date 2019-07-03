@@ -21,6 +21,8 @@
     </delete>
 
     <update id="upDateInsurance" parameterType="com.tcrush.entity.insurance.Insurance">
-        update from insurance
+        update insurance
+        set retire_ins=#{retireInsurance},medical_ins=#{medicalInsurance},fund=#{fund}
+        where eno=#{number}
     </update>
 </mapper>

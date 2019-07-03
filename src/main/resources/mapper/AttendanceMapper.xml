@@ -22,6 +22,8 @@
     </delete>
 
     <update id="upDateAttendance" parameterType="com.tcrush.entity.attendance.Attendance">
-        update from attendance
+        update attendance
+        set overtime=#{overtime},leaving=#{leaving},holiday=#{holiday}
+        where eno=#{number} and att_date=#{attendanceDate}
     </update>
 </mapper>

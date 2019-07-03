@@ -40,6 +40,21 @@ public class EmployeeController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/selectName", method = RequestMethod.GET)
+    public BackRest selectByName(@RequestParam Map<String, String> map) {
+        String name=map.get("name");
+        BackRest backRest=employeeService.selectByName(name);
+        return backRest;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/selectAll", method = RequestMethod.GET)
+    public BackRest selectAll() {
+        BackRest backRest=employeeService.selectAll();
+        return backRest;
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public BackRest deleteEmployee(@RequestParam Map<String, String> map) {
         String number = map.get("number");

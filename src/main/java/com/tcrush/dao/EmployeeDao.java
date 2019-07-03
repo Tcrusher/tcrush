@@ -9,6 +9,8 @@ import java.util.List;
 public interface EmployeeDao {
     void insertEmployee(Employee employee);
     List<Employee> selectEmployee(String number);
+    List<Employee> selectByName(String name);
+    List<Employee> selectAll();
     void deleteEmployee(String number);
     void upDateEmployee(String number, Employee employee);
 }

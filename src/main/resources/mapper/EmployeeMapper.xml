@@ -20,12 +20,22 @@
         select * from employee where eno=#{number}
     </select>
 
+    <select id="selectByName" resultMap="EmployeeMap">
+        select * from employee where ename=#{name}
+    </select>
+
+    <select id="selectAll" resultMap="EmployeeMap">
+        select * from employee
+    </select>
+
     <delete id="deleteEmployee" parameterType="com.tcrush.entity.employee.Employee">
         delete from employee where eno=#{number}
     </delete>
 
     <update id="upDateEmployee" parameterType="com.tcrush.entity.employee.Employee">
-        update from employee
+        update employee
+        set ename=#{name},sex=#{sex},birthday=#{birthday},phone=#{phone},profession=#{profession},resume={resume}
+        where eno=#{number}
     </update>
 
 </mapper>

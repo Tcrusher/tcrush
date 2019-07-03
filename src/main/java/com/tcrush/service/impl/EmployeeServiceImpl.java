@@ -51,6 +51,38 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public BackRest selectByName(String name) {
+        try {
+            List<Employee> employees = employeeDao.selectByName(name);
+            backRest.setCode(200);
+            backRest.setMassage("查询员工成功");
+            backRest.setData(employees);
+        } catch (Exception e) {
+            e.printStackTrace();
+            backRest.setCode(-1);
+            backRest.setMassage("查询员工失败");
+            backRest.setData(null);
+        }
+        return backRest;
+    }
+
+    @Override
+    public BackRest selectAll() {
+        try {
+            List<Employee> employees = employeeDao.selectAll();
+            backRest.setCode(200);
+            backRest.setMassage("查询员工成功");
+            backRest.setData(employees);
+        } catch (Exception e) {
+            e.printStackTrace();
+            backRest.setCode(-1);
+            backRest.setMassage("查询员工失败");
+            backRest.setData(null);
+        }
+        return backRest;
+    }
+
+    @Override
     public BackRest deleteEmployeeService(String number) {
         try {
             employeeDao.deleteEmployee(number);
@@ -72,9 +104,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     public BackRest upDateEmployeeService(String number, Employee employee) {
         try {
             employeeDao.upDateEmployee(number, employee);
+            backRest.setCode(200);
+            backRest.setMassage("更新员工成功");
+            backRest.setData(null);
         } catch (Exception e) {
             e.printStackTrace();
+            backRest.setCode(200);
+            backRest.setMassage("更新员工失败");
+            backRest.setData(null);
         }
-        return null;
+        return backRest;
     }
 }
