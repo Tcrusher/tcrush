@@ -22,7 +22,6 @@ public class UserController {
         LoginInfo loginInfo = new LoginInfo();
         loginInfo.setUserName(username);
         loginInfo.setPassword(password);
-        System.out.println(username+":"+password);
         BackRest backRest = userService.loginService(loginInfo);
         return backRest;
     }
